@@ -83,7 +83,7 @@ public class Babysitter {
 	}
 
 
-	int familyTotalBasedOnServiceNeeds() {
+	int familyATotalBasedOnServiceNeeds() {
 		int earlyRate = 0;
 		int lateRate = 0;
 		int subTotal1 = 0;
@@ -102,4 +102,35 @@ public class Babysitter {
 		return subTotal1 + subTotal2;
 	}
 
+	
+//	int familyBTotalBasedOnServiceNeed() {
+//		int earlyRate = 0;
+//		int specialRate= 0;
+//		int lateRate = 0;
+//		int subTotal1 = 0;
+//		int subTotal2 = 0;
+//		if (validateWithinHoursOfAvailability(getStartTime(), getEndTime())) {
+//			if (getStartTime() < 22) {
+//				earlyRate = 22 - getStartTime();
+//				subTotal1 = (int) (earlyRate * getEarlyPay());
+//			}if (get)
+//		}
+//	}
+
+	int familyCTotalBasedOnServiceNeeds() {
+		int earlyRate = 0;
+		int lateRate = 0;
+		int subTotal1 = 0;
+		int subTotal2 = 0;
+		if (validateWithinHoursOfAvailability(getStartTime(), getEndTime())) {
+			if (getStartTime() < 21) {
+				earlyRate = 21 - getStartTime();
+				subTotal1 = (int) (earlyRate * getEarlyPay());
+			}if (getEndTime() > 21) {
+				lateRate = getEndTime() - 21;
+				subTotal2 = (int) (lateRate * getLatePay());
+			}
+		}
+		return subTotal1 + subTotal2;
+	}
 }
