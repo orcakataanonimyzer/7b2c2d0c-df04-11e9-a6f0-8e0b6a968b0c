@@ -18,6 +18,10 @@ public class Babysitter {
 	private int earlyPay;
 	// specialPay: pay for any specified times with different pay;
 	private int specialPay;
+	
+	private int specialScheduleStart;
+	
+	private int specialScheduleEnd;
 	// latePay: pay for later portion of the night.
 	private int latePay;
 
@@ -26,14 +30,19 @@ public class Babysitter {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Babysitter(int startTime, int endTime, int earlyPay, int specialPay, int latePay) {
+	
+	public Babysitter(int startTime, int endTime, int earlyPay, int specialPay, int specialScheduleStart,
+			int specialScheduleEnd, int latePay) {
 		super();
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.earlyPay = earlyPay;
 		this.specialPay = specialPay;
+		this.specialScheduleStart = specialScheduleStart;
+		this.specialScheduleEnd = specialScheduleEnd;
 		this.latePay = latePay;
 	}
+
 
 	public int getStartTime() {
 		return startTime;
@@ -74,6 +83,28 @@ public class Babysitter {
 	public void setLatePay(int latePay) {
 		this.latePay = latePay;
 	}
+	
+	
+
+	public int getSpecialScheduleStart() {
+		return specialScheduleStart;
+	}
+
+
+	public void setSpecialScheduleStart(int specialScheduleStart) {
+		this.specialScheduleStart = specialScheduleStart;
+	}
+
+
+	public int getSpecialScheduleEnd() {
+		return specialScheduleEnd;
+	}
+
+
+	public void setSpecialScheduleEnd(int specialScheduleEnd) {
+		this.specialScheduleEnd = specialScheduleEnd;
+	}
+
 
 	public boolean validateWithinHoursOfAvailability(int startTime, int endTime) {
 		if (startTime >= START_TIME && endTime <= END_TIME) {
@@ -103,19 +134,29 @@ public class Babysitter {
 	}
 
 	
-//	int familyBTotalBasedOnServiceNeed() {
-//		int earlyRate = 0;
-//		int specialRate= 0;
-//		int lateRate = 0;
-//		int subTotal1 = 0;
-//		int subTotal2 = 0;
-//		if (validateWithinHoursOfAvailability(getStartTime(), getEndTime())) {
-//			if (getStartTime() < 22) {
-//				earlyRate = 22 - getStartTime();
-//				subTotal1 = (int) (earlyRate * getEarlyPay());
-//			}if (get)
-//		}
-//	}
+	int familyBTotalBasedOnServiceNeeds() {
+		int earlyRate = 0;
+		int specialRate = 0;
+		int lateRate = 0;
+		int subTotal1 = 0;
+		int subTotal2 = 0;
+		int subTotal3 = 0;
+		
+		if (validateWithinHoursOfAvailability(getStartTime(), getEndTime())) {
+			if (getStartTime() < 22) {
+				earlyRate = 22 - getStartTime();
+				subTotal1 = (int) (earlyRate * getEarlyPay());
+			}if (getSpecialScheduleStart()>=22 && getSpecialScheduleEnd()<= 24) {
+				specialRate = 24 - getSpecialScheduleStart(); 
+				subTotal2 = (int) (specialRate * getSpecialPay());
+			}
+			if (getEndTime() > 24) {
+				lateRate = getEndTime() - 24;
+				subTotal3 = (int) (lateRate * getLatePay());
+			}
+		}
+		return subTotal1 + subTotal2 +  subTotal3;
+	}
 
 	int familyCTotalBasedOnServiceNeeds() {
 		int earlyRate = 0;
