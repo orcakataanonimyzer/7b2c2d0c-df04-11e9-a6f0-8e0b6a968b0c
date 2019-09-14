@@ -164,12 +164,12 @@ public class Babysitter {
 	int familyCTotalBasedOnServiceNeeds() {
 
 		if (validateWithinHoursOfAvailability(getStartTime(), getEndTime())) {
-			if (getStartTime() < 21) {
-				earlyRateTimeFrame = 21 - getStartTime();
+			if (getStartTime() < getLatePayStartTime()) {
+				earlyRateTimeFrame = getLatePayStartTime() - getStartTime();
 				subTotal1 = (int) (earlyRateTimeFrame * getEarlyPay());
 			}
-			if (getEndTime() > 21) {
-				lateRateTimeFrame = getEndTime() - 21;
+			if (getEndTime() > getLatePayStartTime()) {
+				lateRateTimeFrame = getEndTime() - getLatePayStartTime();
 				subTotal2 = (int) (lateRateTimeFrame * getLatePay());
 			}
 		}
