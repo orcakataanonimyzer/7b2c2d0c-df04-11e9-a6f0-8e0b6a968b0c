@@ -31,6 +31,22 @@ public class BabysitterTest {
 		assertEquals(expected, actual);
 	}
 	
+	@Test 
+	public void FamilyBtotalBasedOnServiceNeeds() {
+		Babysitter B = new Babysitter();
+		B.setStartTime(20);
+		B.setLatePayStartTime(22);
+		B.setSpecialScheduleStart(22);
+		B.setSpecialScheduleEnd(24);
+		B.setEndTime(25);
+		B.setEarlyPay(12);
+		B.setSpecialPay(8);
+		B.setLatePay(16);
+		int expected = 56;
+		int actual = B.familyBTotalBasedOnServiceNeeds();
+		assertEquals(expected, actual);
+		
+	}
 	
 	@Test 
 	public void familyCTotalBasedOnServiceNeeeds() {
@@ -45,19 +61,5 @@ public class BabysitterTest {
 		assertEquals(expected, actual);
 	}
 	
-	@Test 
-	public void FamilyBtotalBasedOnServiceNeeds() {
-		Babysitter B = new Babysitter();
-		B.setStartTime(20);
-		B.setSpecialScheduleStart(22);
-		B.setSpecialScheduleEnd(24);
-		B.setEndTime(25);
-		B.setEarlyPay(12);
-		B.setSpecialPay(8);
-		B.setLatePay(16);
-		int expected = 56;
-		int actual = B.familyBTotalBasedOnServiceNeeds();
-		assertEquals(expected, actual);
-		
-	}
+	
 }

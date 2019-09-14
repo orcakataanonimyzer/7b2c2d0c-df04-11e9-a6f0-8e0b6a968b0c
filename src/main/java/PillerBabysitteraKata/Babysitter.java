@@ -26,7 +26,7 @@ public class Babysitter {
 	private int specialScheduleEnd;
 	// latePay: pay for later portion of the night.
 	private int latePay;
-	
+
 	private int latePayStartTime;
 
 	private int earlyRateTimeFrame = 0;
@@ -110,7 +110,7 @@ public class Babysitter {
 	public void setSpecialScheduleEnd(int specialScheduleEnd) {
 		this.specialScheduleEnd = specialScheduleEnd;
 	}
-	
+
 	public int getLatePayStartTime() {
 		return latePayStartTime;
 	}
@@ -127,7 +127,7 @@ public class Babysitter {
 	}
 
 	int familyATotalBasedOnServiceNeeds() {
-		
+
 		if (validateWithinHoursOfAvailability(getStartTime(), getEndTime())) {
 			if (getStartTime() < getLatePayStartTime()) {
 				earlyRateTimeFrame = getLatePayStartTime() - getStartTime();
@@ -145,11 +145,11 @@ public class Babysitter {
 	int familyBTotalBasedOnServiceNeeds() {
 
 		if (validateWithinHoursOfAvailability(getStartTime(), getEndTime())) {
-			if (getStartTime() < 22) {
-				earlyRateTimeFrame = 22 - getStartTime();
+			if (getStartTime() < getLatePayStartTime()) {
+				earlyRateTimeFrame = getLatePayStartTime() - getStartTime();
 				subTotal1 = (int) (earlyRateTimeFrame * getEarlyPay());
 			}
-			if (getSpecialScheduleStart() >= 22 && getSpecialScheduleEnd() <= 24) {
+			if (getSpecialScheduleStart() >= getLatePayStartTime() && getSpecialScheduleEnd() <= 24) {
 				specialRateTimeFrame = 24 - getSpecialScheduleStart();
 				subTotal2 = (int) (specialRateTimeFrame * getSpecialPay());
 			}
