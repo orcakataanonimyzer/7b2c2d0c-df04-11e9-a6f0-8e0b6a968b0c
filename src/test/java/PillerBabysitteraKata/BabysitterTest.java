@@ -22,6 +22,7 @@ public class BabysitterTest {
 	public void familyATotalBasedOnServiceNeeds() {
 		Babysitter A = new Babysitter();
 		A.setStartTime(20);
+		A.setLatePayStartTime(23);
 		A.setEndTime(26);
 		A.setEarlyPay(15);
 		A.setLatePay(20);
