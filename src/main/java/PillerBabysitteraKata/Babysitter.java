@@ -129,8 +129,12 @@ public class Babysitter {
 	int familyATotalBasedOnServiceNeeds() {
 
 		if (validateWithinHoursOfAvailability(getStartTime(), getEndTime())) {
+			if (getSpecialScheduleStart() >= 22 && getSpecialScheduleEnd() <= 24) {
+				specialRateTimeFrame = getLatePayStartTime() - getSpecialScheduleStart();
+				subTotal3 = (int) (specialRateTimeFrame * getSpecialPay());
+			}
 			if (getStartTime() < getLatePayStartTime()) {
-				earlyRateTimeFrame = getLatePayStartTime() - getStartTime();
+				earlyRateTimeFrame = getLatePayStartTime() - specialRateTimeFrame - getStartTime();
 				subTotal1 = (int) (earlyRateTimeFrame * getEarlyPay());
 			}
 			if (getEndTime() > getLatePayStartTime()) {
@@ -138,41 +142,41 @@ public class Babysitter {
 				subTotal2 = (int) (lateRateTimeFrame * getLatePay());
 			}
 
-		}
-		return subTotal1 + subTotal2;
-	}
-
-	int familyBTotalBasedOnServiceNeeds() {
-
-		if (validateWithinHoursOfAvailability(getStartTime(), getEndTime())) {
-			if (getStartTime() < getLatePayStartTime()) {
-				earlyRateTimeFrame = getLatePayStartTime() - getStartTime();
-				subTotal1 = (int) (earlyRateTimeFrame * getEarlyPay());
-			}
-			if (getSpecialScheduleStart() >= getLatePayStartTime() && getSpecialScheduleEnd() <= 24) {
-				specialRateTimeFrame = 24 - getSpecialScheduleStart();
-				subTotal2 = (int) (specialRateTimeFrame * getSpecialPay());
-			}
-			if (getEndTime() > 24) {
-				lateRateTimeFrame = getEndTime() - 24;
-				subTotal3 = (int) (lateRateTimeFrame * getLatePay());
-			}
 		}
 		return subTotal1 + subTotal2 + subTotal3;
 	}
 
-	int familyCTotalBasedOnServiceNeeds() {
-
-		if (validateWithinHoursOfAvailability(getStartTime(), getEndTime())) {
-			if (getStartTime() < getLatePayStartTime()) {
-				earlyRateTimeFrame = getLatePayStartTime() - getStartTime();
-				subTotal1 = (int) (earlyRateTimeFrame * getEarlyPay());
-			}
-			if (getEndTime() > getLatePayStartTime()) {
-				lateRateTimeFrame = getEndTime() - getLatePayStartTime();
-				subTotal2 = (int) (lateRateTimeFrame * getLatePay());
-			}
-		}
-		return subTotal1 + subTotal2;
-	}
+//	int familyBTotalBasedOnServiceNeeds() {
+//
+//		if (validateWithinHoursOfAvailability(getStartTime(), getEndTime())) {
+//			if (getStartTime() < getLatePayStartTime()) {
+//				earlyRateTimeFrame = getLatePayStartTime() - getStartTime();
+//				subTotal1 = (int) (earlyRateTimeFrame * getEarlyPay());
+//			}
+//			if (getSpecialScheduleStart() >= getLatePayStartTime() && getSpecialScheduleEnd() <= 24) {
+//				specialRateTimeFrame = 24 - getSpecialScheduleStart();
+//				subTotal2 = (int) (specialRateTimeFrame * getSpecialPay());
+//			}
+//			if (getEndTime() > 24) {
+//				lateRateTimeFrame = getEndTime() - 24;
+//				subTotal3 = (int) (lateRateTimeFrame * getLatePay());
+//			}
+//		}
+//		return subTotal1 + subTotal2 + subTotal3;
+//	}
+//
+//	int familyCTotalBasedOnServiceNeeds() {
+//
+//		if (validateWithinHoursOfAvailability(getStartTime(), getEndTime())) {
+//			if (getStartTime() < getLatePayStartTime()) {
+//				earlyRateTimeFrame = getLatePayStartTime() - getStartTime();
+//				subTotal1 = (int) (earlyRateTimeFrame * getEarlyPay());
+//			}
+//			if (getEndTime() > getLatePayStartTime()) {
+//				lateRateTimeFrame = getEndTime() - getLatePayStartTime();
+//				subTotal2 = (int) (lateRateTimeFrame * getLatePay());
+//			}
+//		}
+//		return subTotal1 + subTotal2;
+//	}
 }

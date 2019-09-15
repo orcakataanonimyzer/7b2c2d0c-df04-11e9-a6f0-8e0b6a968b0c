@@ -35,7 +35,7 @@ public class BabysitterTest {
 	public void FamilyBtotalBasedOnServiceNeeds() {
 		Babysitter B = new Babysitter();
 		B.setStartTime(20);
-		B.setLatePayStartTime(22);
+		B.setLatePayStartTime(24);
 		B.setSpecialScheduleStart(22);
 		B.setSpecialScheduleEnd(24);
 		B.setEndTime(25);
@@ -43,13 +43,26 @@ public class BabysitterTest {
 		B.setSpecialPay(8);
 		B.setLatePay(16);
 		int expected = 56;
-		int actual = B.familyBTotalBasedOnServiceNeeds();
+		int actual = B.familyATotalBasedOnServiceNeeds();
 		assertEquals(expected, actual);
 		
 	}
-	
+//	
+//	@Test 
+//	public void familyCTotalBasedOnServiceNeeeds() {
+//		Babysitter C = new Babysitter();
+//		C.setStartTime(18);
+//		C.setLatePayStartTime(21);
+//		C.setEndTime(22);
+//		C.setEarlyPay(21);
+//		C.setLatePay(15);
+//		int expected = 78;
+//		int actual = C.familyCTotalBasedOnServiceNeeds();
+//		assertEquals(expected, actual);
+//	}
+//	
 	@Test 
-	public void familyCTotalBasedOnServiceNeeeds() {
+	public void familyCTotalBasedOnServiceNeeeds2() {
 		Babysitter C = new Babysitter();
 		C.setStartTime(18);
 		C.setLatePayStartTime(21);
@@ -57,12 +70,12 @@ public class BabysitterTest {
 		C.setEarlyPay(21);
 		C.setLatePay(15);
 		int expected = 78;
-		int actual = C.familyCTotalBasedOnServiceNeeds();
+		int actual = C.familyATotalBasedOnServiceNeeds();
 		assertEquals(expected, actual);
 	}
 	
 	@Test 
-	public void familyCTotalBasedOnServiceNeeeds2() {
+	public void familyCTotalBasedOnServiceNeeeds3() {
 		Babysitter C = new Babysitter();
 		C.setStartTime(18);
 		C.setLatePayStartTime(21);
