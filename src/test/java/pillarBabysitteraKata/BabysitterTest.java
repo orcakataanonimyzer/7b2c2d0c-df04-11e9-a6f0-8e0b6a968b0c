@@ -50,6 +50,20 @@ public class BabysitterTest {
 		assertEquals(expected, actual);
 	}
 	
+	@Test
+	public void familyATotalBasedOnServiceNeeds3() {
+		
+		Kate.setFamily("a");
+		Kate.setStartTime(23);
+		Kate.setLatePayStartTime(23);
+		Kate.setEndTime(26);
+		Kate.setEarlyPay(15);
+		Kate.setLatePay(20);
+		int expected = 60;
+		int actual = Kate.familyTotalBasedOnServiceNeeds();
+		assertEquals(expected, actual);
+	}
+	
 	@Test 
 	public void FamilyBtotalBasedOnServiceNeeds() {
 		
