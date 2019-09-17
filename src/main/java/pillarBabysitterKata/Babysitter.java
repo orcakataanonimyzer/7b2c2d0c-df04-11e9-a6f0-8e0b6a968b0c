@@ -162,7 +162,8 @@ public class Babysitter {
 				return subTotal1 + subTotal2 + subTotal3;
 			}
 			if (getFamily().equalsIgnoreCase("A") || getFamily().equalsIgnoreCase("C"))
-				
+				if (validateWithinHoursOfAvailability(getStartTime(), getEndTime()) == true) {
+
 				if (getStartTime() < getLatePayStartTime()) {
 					earlyRateTimeFrame = getLatePayStartTime() - getStartTime();
 					subTotal1 = (int) (earlyRateTimeFrame * getEarlyPay());
@@ -171,8 +172,8 @@ public class Babysitter {
 					lateRateTimeFrame = getEndTime() - getLatePayStartTime();
 					subTotal2 = (int) (lateRateTimeFrame * getLatePay());
 				}
-				return subTotal1 + subTotal2;
 		}
 	
-		
-	} 
+			return subTotal1 + subTotal2;
+	}	
+}

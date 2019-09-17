@@ -15,10 +15,15 @@ public class BabysitterTest {
 	@Test
 	public void validateWithinHoursOfAvailability () {
 		
-		Kate.setStartTime(17);
-		Kate.setEndTime(28);
 		boolean expected = true;
 		boolean actual = Kate.validateWithinHoursOfAvailability(17, 28);
+		assertEquals(expected, actual);
+	}
+	@Test
+	public void validateWithinHoursOfAvailability2 () {
+		
+		boolean expected = false;
+		boolean actual = Kate.validateWithinHoursOfAvailability(15, 29);
 		assertEquals(expected, actual);
 	}
 	
@@ -84,6 +89,7 @@ public class BabysitterTest {
 	
 	@Test 
 	public void FamilyBTotalBasedOnServiceNeeds2() {
+		
 		Kate.setFamily("b");
 		Kate.setStartTime(19);
 		Kate.setLatePayStartTime(24);
@@ -100,6 +106,7 @@ public class BabysitterTest {
 	
 	@Test 
 	public void FamilyBTotalBasedOnServiceNeeds3() {
+		
 		Kate.setFamily("b");
 		Kate.setStartTime(22);
 		Kate.setLatePayStartTime(24);
@@ -115,7 +122,24 @@ public class BabysitterTest {
 	}
 	
 	@Test 
+	public void FamilyBTotalBasedOnServiceNeeds4() {
+		
+		Kate.setFamily("b");
+		Kate.setStartTime(22);
+		Kate.setLatePayStartTime(24);
+		Kate.setSpecialScheduleStart(22);
+		Kate.setSpecialScheduleEnd(24);
+		Kate.setEndTime(24);
+		Kate.setEarlyPay(12);
+		Kate.setSpecialPay(8);
+		Kate.setLatePay(16);
+		int expected = 16;
+		int actual = Kate.familyTotalBasedOnServiceNeeds();
+		assertEquals(expected, actual);
+	}
+	@Test 
 	public void familyCTotalBasedOnServiceNeeeds() {
+		
 		Kate.setFamily("c");
 		Kate.setStartTime(18);
 		Kate.setLatePayStartTime(21);
@@ -129,6 +153,7 @@ public class BabysitterTest {
 	
 	@Test 
 	public void familyCTotalBasedOnServiceNeeeds2() {
+		
 		Kate.setFamily("c");
 		Kate.setStartTime(18);
 		Kate.setLatePayStartTime(21);
@@ -142,6 +167,7 @@ public class BabysitterTest {
 	
 	@Test 
 	public void familyCTotalBasedOnServiceNeeeds3() {
+		
 		Kate.setFamily("c");
 		Kate.setStartTime(18);
 		Kate.setLatePayStartTime(21);
@@ -155,6 +181,7 @@ public class BabysitterTest {
 	
 	@Test
 	public void familyCTotalBasedOnServiceNeeds4() {
+		
 		Kate.setFamily("c");
 		Kate.setStartTime(17);
 		Kate.setLatePayStartTime(21);
@@ -168,6 +195,7 @@ public class BabysitterTest {
 	
 	@Test
 	public void familyCTotalBasedOnServiceNeeds5() {
+		
 		Kate.setFamily("c");
 		Kate.setStartTime(21);
 		Kate.setLatePayStartTime(21);
