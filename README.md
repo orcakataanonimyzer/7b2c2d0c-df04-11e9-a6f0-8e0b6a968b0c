@@ -12,6 +12,6 @@ much more than I would have before using TDD.
 3.After importing the gradle project into your editor you will be able to run the Junit tests I have written.
 
 4.If you need to write your own test cases you can use the setters from the babysitter object to set the family, start time, 
-end time, special schedule time. early rate, late rate, and special rate. 
+end time, special schedule time, and special rate. 
 
 5.Based on your input in the setters the total should be calculated based on the family chosen. 
