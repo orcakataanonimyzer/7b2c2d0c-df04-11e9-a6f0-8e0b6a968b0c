@@ -34,8 +34,6 @@ public class BabysitterTest {
 		Kate.setStartTime(20);
 		Kate.setLatePayStartTime(23);
 		Kate.setEndTime(26);
-		Kate.setEarlyPay(15);
-		Kate.setLatePay(20);
 		int expected = 105;
 		int actual = Kate.familyTotalBasedOnServiceNeeds();
 		assertEquals(expected, actual);
@@ -48,8 +46,6 @@ public class BabysitterTest {
 		Kate.setStartTime(20);
 		Kate.setLatePayStartTime(23);
 		Kate.setEndTime(23);
-		Kate.setEarlyPay(15);
-		Kate.setLatePay(20);
 		int expected = 45;
 		int actual = Kate.familyTotalBasedOnServiceNeeds();
 		assertEquals(expected, actual);
@@ -62,8 +58,6 @@ public class BabysitterTest {
 		Kate.setStartTime(23);
 		Kate.setLatePayStartTime(23);
 		Kate.setEndTime(26);
-		Kate.setEarlyPay(15);
-		Kate.setLatePay(20);
 		int expected = 60;
 		int actual = Kate.familyTotalBasedOnServiceNeeds();
 		assertEquals(expected, actual);
@@ -78,9 +72,7 @@ public class BabysitterTest {
 		Kate.setSpecialScheduleStart(22);
 		Kate.setSpecialScheduleEnd(24);
 		Kate.setEndTime(25);
-		Kate.setEarlyPay(12);
 		Kate.setSpecialPay(8);
-		Kate.setLatePay(16);
 		int expected = 56;
 		int actual = Kate.familyTotalBasedOnServiceNeeds();
 		assertEquals(expected, actual);
@@ -96,9 +88,7 @@ public class BabysitterTest {
 		Kate.setSpecialScheduleStart(22);
 		Kate.setSpecialScheduleEnd(24);
 		Kate.setEndTime(26);
-		Kate.setEarlyPay(12);
 		Kate.setSpecialPay(8);
-		Kate.setLatePay(16);
 		int expected = 84;
 		int actual = Kate.familyTotalBasedOnServiceNeeds();
 		assertEquals(expected, actual);
@@ -113,9 +103,7 @@ public class BabysitterTest {
 		Kate.setSpecialScheduleStart(22);
 		Kate.setSpecialScheduleEnd(24);
 		Kate.setEndTime(24);
-		Kate.setEarlyPay(12);
 		Kate.setSpecialPay(8);
-		Kate.setLatePay(16);
 		int expected = 16;
 		int actual = Kate.familyTotalBasedOnServiceNeeds();
 		assertEquals(expected, actual);
@@ -130,9 +118,8 @@ public class BabysitterTest {
 		Kate.setSpecialScheduleStart(22);
 		Kate.setSpecialScheduleEnd(24);
 		Kate.setEndTime(24);
-		Kate.setEarlyPay(12);
 		Kate.setSpecialPay(8);
-		Kate.setLatePay(16);
+		
 		int expected = 16;
 		int actual = Kate.familyTotalBasedOnServiceNeeds();
 		assertEquals(expected, actual);
@@ -144,8 +131,6 @@ public class BabysitterTest {
 		Kate.setStartTime(18);
 		Kate.setLatePayStartTime(21);
 		Kate.setEndTime(22);
-		Kate.setEarlyPay(21);
-		Kate.setLatePay(15);
 		int expected = 78;
 		int actual = Kate.familyTotalBasedOnServiceNeeds();
 		assertEquals(expected, actual);
@@ -158,8 +143,6 @@ public class BabysitterTest {
 		Kate.setStartTime(18);
 		Kate.setLatePayStartTime(21);
 		Kate.setEndTime(22);
-		Kate.setEarlyPay(21);
-		Kate.setLatePay(15);
 		int expected = 78;
 		int actual = Kate.familyTotalBasedOnServiceNeeds();
 		assertEquals(expected, actual);
@@ -172,8 +155,6 @@ public class BabysitterTest {
 		Kate.setStartTime(18);
 		Kate.setLatePayStartTime(21);
 		Kate.setEndTime(22);
-		Kate.setEarlyPay(21);
-		Kate.setLatePay(15);
 		int expected = 78;
 		int actual = Kate.familyTotalBasedOnServiceNeeds();
 		assertEquals(expected, actual);
@@ -186,8 +167,6 @@ public class BabysitterTest {
 		Kate.setStartTime(17);
 		Kate.setLatePayStartTime(21);
 		Kate.setEndTime(21);
-		Kate.setEarlyPay(21);
-		Kate.setLatePay(15);
 		int expected = 84;
 		int actual = Kate.familyTotalBasedOnServiceNeeds();
 		assertEquals(expected, actual);
@@ -200,8 +179,6 @@ public class BabysitterTest {
 		Kate.setStartTime(21);
 		Kate.setLatePayStartTime(21);
 		Kate.setEndTime(23);
-		Kate.setEarlyPay(21);
-		Kate.setLatePay(15);
 		int expected = 30;
 		int actual = Kate.familyTotalBasedOnServiceNeeds();
 		assertEquals(expected, actual);

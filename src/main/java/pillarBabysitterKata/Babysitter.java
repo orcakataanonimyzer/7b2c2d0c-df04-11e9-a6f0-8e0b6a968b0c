@@ -16,8 +16,7 @@ public class Babysitter {
 	private int startTime;
 	// Babysitter end time for the evening
 	private int endTime;
-	// earlyPay: pay for the beginning of the night;
-	private int earlyPay;
+
 	// specialPay: pay for any specified times with different pay;
 	private int specialPay;
 	// Time the special pay will start
@@ -25,7 +24,6 @@ public class Babysitter {
 	// Time Special schedule will ends
 	private int specialScheduleEnd;
 	// latePay: pay for later portion of the night.
-	private int latePay;
 
 	private int latePayStartTime;
 
@@ -43,17 +41,15 @@ public class Babysitter {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Babysitter(int startTime, int endTime, int earlyPay, int specialPay, int specialScheduleStart,
-			int specialScheduleEnd, int latePay, int latePayStartTime, int earlyRateTimeFrame, int specialRateTimeFrame,
-			int lateRateTimeFrame, int subTotal1, int subTotal2, int subTotal3, String family) {
+	public Babysitter(int startTime, int endTime, int specialPay, int specialScheduleStart, int specialScheduleEnd,
+			int latePayStartTime, int earlyRateTimeFrame, int specialRateTimeFrame, int lateRateTimeFrame,
+			int subTotal1, int subTotal2, int subTotal3, String family) {
 		super();
 		this.startTime = startTime;
 		this.endTime = endTime;
-		this.earlyPay = earlyPay;
 		this.specialPay = specialPay;
 		this.specialScheduleStart = specialScheduleStart;
 		this.specialScheduleEnd = specialScheduleEnd;
-		this.latePay = latePay;
 		this.latePayStartTime = latePayStartTime;
 		this.earlyRateTimeFrame = earlyRateTimeFrame;
 		this.specialRateTimeFrame = specialRateTimeFrame;
@@ -80,28 +76,12 @@ public class Babysitter {
 		this.endTime = endTime;
 	}
 
-	public double getEarlyPay() {
-		return earlyPay;
-	}
-
-	public void setEarlyPay(int earlyPay) {
-		this.earlyPay = earlyPay;
-	}
-
 	public double getSpecialPay() {
 		return specialPay;
 	}
 
 	public void setSpecialPay(int specialPay) {
 		this.specialPay = specialPay;
-	}
-
-	public double getLatePay() {
-		return latePay;
-	}
-
-	public void setLatePay(int latePay) {
-		this.latePay = latePay;
 	}
 
 	public int getSpecialScheduleStart() {
@@ -150,30 +130,43 @@ public class Babysitter {
 					specialRateTimeFrame = getLatePayStartTime() - getSpecialScheduleStart();
 					subTotal3 = (int) (specialRateTimeFrame * getSpecialPay());
 				}
-				
+
 				if (getStartTime() < getLatePayStartTime()) {
 					earlyRateTimeFrame = getLatePayStartTime() - specialRateTimeFrame - getStartTime();
-					subTotal1 = (int) (earlyRateTimeFrame * getEarlyPay());
+					subTotal1 = (int) (earlyRateTimeFrame * 12);
 				}
 				if (getEndTime() > getLatePayStartTime()) {
 					lateRateTimeFrame = getEndTime() - getLatePayStartTime();
-					subTotal2 = (int) (lateRateTimeFrame * getLatePay());
+					subTotal2 = (int) (lateRateTimeFrame * 16);
 				}
 				return subTotal1 + subTotal2 + subTotal3;
 			}
-			if (getFamily().equalsIgnoreCase("A") || getFamily().equalsIgnoreCase("C"))
-				if (validateWithinHoursOfAvailability(getStartTime(), getEndTime()) == true) {
+		if (getFamily().equalsIgnoreCase("A"))
+			if (validateWithinHoursOfAvailability(getStartTime(), getEndTime()) == true) {
 
 				if (getStartTime() < getLatePayStartTime()) {
 					earlyRateTimeFrame = getLatePayStartTime() - getStartTime();
-					subTotal1 = (int) (earlyRateTimeFrame * getEarlyPay());
+					subTotal1 = (int) (earlyRateTimeFrame * 15);
 				}
 				if (getEndTime() > getLatePayStartTime()) {
 					lateRateTimeFrame = getEndTime() - getLatePayStartTime();
-					subTotal2 = (int) (lateRateTimeFrame * getLatePay());
+					subTotal2 = (int) (lateRateTimeFrame * 20);
 				}
-		}
-	
-			return subTotal1 + subTotal2;
-	}	
+				return subTotal1 + subTotal2;
+			}
+		if (getFamily().equalsIgnoreCase("C"))
+			if (validateWithinHoursOfAvailability(getStartTime(), getEndTime()) == true) {
+
+				if (getStartTime() < getLatePayStartTime()) {
+					earlyRateTimeFrame = getLatePayStartTime() - getStartTime();
+					subTotal1 = (int) (earlyRateTimeFrame * 21);
+				}
+				if (getEndTime() > getLatePayStartTime()) {
+					lateRateTimeFrame = getEndTime() - getLatePayStartTime();
+					subTotal2 = (int) (lateRateTimeFrame * 15);
+				}
+
+			}
+		return subTotal1 + subTotal2;
+	}
 }
